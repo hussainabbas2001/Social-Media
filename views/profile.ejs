@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        h1 {
+            color: black;
+
+        }
+
+        #plc {
+
+            font-size: 20px;
+
+        }
+
+        #logout {
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a style="position: absolute; right: 5%;" id="logout" href="/logout">logout</a>
+    <a href="/feed">feeds</a>
+    <h1>Wellcome <%= userData.username %>
+    </h1>
+
+    <form action="poste" method="post">
+        <textarea style="width: 100%; " name="postData" i cols="30" placeholder="Post Here" id="plc"
+            rows="10"></textarea>
+        <input style="position: absolute; right: 0%; " type="Submit" placeholder="post">
+    </form>
+
+    <% userData.post.forEach(function(posted){%>
+        <div style="margin-top: 2%;" id="post">
+
+
+            <%= posted.post %>
+
+        </div>
+        <a href="/like/<%=posted._id%>">
+            <%= posted.likes.length%> Likes
+        </a>
+        <br>
+        <a href="/delete/<%=posted._id%>">
+            Delete
+        </a>
+        <hr>
+        <% }) %>
+
+
+</body>
+
+</html>

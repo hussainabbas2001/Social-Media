@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <% ALLpost.post.forEach(function(posts){ %>
+        <div style="margin-top: 2%;" id="post">
+            <%= posts.post %>
+        </div>
+        <a href="/like/<%=posts._id%>">
+            <%= posts.likes.length%> Likes
+        </a>
+        <br>
+        <a href="/delete/<%=posts._id%>">
+            Delete
+        </a>
+        <hr>
+        <% }) %>
+</body>
+
+</html>
